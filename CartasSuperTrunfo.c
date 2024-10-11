@@ -17,14 +17,44 @@ int main() {
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
-    // Países: Brasil, Holanada, EUA e Reino Unido
+    // Países: Brasil, Holanada, EUA e Reino Unido.
 
     printf("Desafio Cartas Super Trunfo!\n");
 
-    int população, atrações;
-    float PIB, área;
-    char código carta[200], capital[500];
+    char carta[2000], capital[1000];
+    int populacao;
+    float PIB, area;
+    int atracoes;
+    
 
+    // Brasil:
+
+    
+    printf("Qual o código desta carta? \n");
+    scanf("%d", &carta);
+
+    printf("Qual a capital do Brasil? \n");
+    scanf("%s", &capital);
+
+    printf("Qual a população do Brasil? \n");
+    scanf("%f", &populacao);
+
+    printf("Qual o PIB de 2023 do Brasil? \n");
+    scanf("%f", &PIB);
+
+    printf("Qual a área territorial do Brasil? \n");
+    scanf("%f", &area);
+
+    printf("Quantas são as principais atrações turísticas do Brasil \n");
+    scanf("%d", &atracoes);
+
+    printf("Capital do Brasil: %s - População: %f", capital, populacao);
+    printf(" - PIB 2023: %f - Área territorial: %f", PIB, area);
+    printf(" - Quantidade de principais atrações turísticas: %d", atracoes);
+
+
+
+ 
 
     
 
