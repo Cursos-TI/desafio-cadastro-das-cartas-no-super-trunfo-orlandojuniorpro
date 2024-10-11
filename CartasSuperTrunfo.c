@@ -21,7 +21,11 @@ int main() {
 
     printf("Desafio Cartas Super Trunfo!\n");
 
-    
+    int população, atrações;
+    float PIB, área;
+    char código carta[200], capital[500];
+
+
     
 
     return 0;
