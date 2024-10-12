@@ -21,9 +21,11 @@ int main() {
 
     printf("Desafio Cartas Super Trunfo!\n");
 
-    char carta[2000], capital[1000];
+    int carta;
+    char capital[1000];
     int populacao;
-    float PIB, area;
+    int (PIB); 
+    float area;
     int atracoes;
     
 
@@ -37,10 +39,10 @@ int main() {
     scanf("%s", &capital);
 
     printf("Qual a população do Brasil? \n");
-    scanf("%f", &populacao);
+    scanf("%d", &populacao);
 
     printf("Qual o PIB de 2023 do Brasil? \n");
-    scanf("%f", &PIB);
+    scanf("%d", &(PIB);
 
     printf("Qual a área territorial do Brasil? \n");
     scanf("%f", &area);
@@ -48,8 +50,8 @@ int main() {
     printf("Quantas são as principais atrações turísticas do Brasil \n");
     scanf("%d", &atracoes);
 
-    printf("Capital do Brasil: %s - População: %f", capital, populacao);
-    printf(" - PIB 2023: %f - Área territorial: %f", PIB, area);
+    printf("Capital do Brasil: %s - População: %d", capital, populacao);
+    printf(" - PIB 2023: %d - Área territorial: %f" (PIB), area);
     printf(" - Quantidade de principais atrações turísticas: %d", atracoes);
 
 
