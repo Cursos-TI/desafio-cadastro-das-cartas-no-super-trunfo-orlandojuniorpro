@@ -21,10 +21,10 @@ int main() {
 
     printf("Desafio Cartas Super Trunfo!\n");
 
-    int carta;
-    char capital[1000];
-    int populacao;
-    int (PIB); 
+    char carta[100];
+    char capital[100];
+    float populacao;
+    float PIB; 
     float area;
     int atracoes;
     
@@ -33,27 +33,33 @@ int main() {
 
     
     printf("Qual o código desta carta? \n");
-    scanf("%d", &carta);
+    scanf("%s", &carta);
 
     printf("Qual a capital do Brasil? \n");
     scanf("%s", &capital);
 
-    printf("Qual a população do Brasil? \n");
-    scanf("%d", &populacao);
+    printf("Qual a população do Brasil em milhões? \n");
+    scanf("%f", &populacao);
 
-    printf("Qual o PIB de 2023 do Brasil? \n");
-    scanf("%d", &(PIB);
+    printf("Qual o PIB de 2023 do Brasil em trilhões? \n");
+    scanf("%f", &PIB);
 
-    printf("Qual a área territorial do Brasil? \n");
+    printf("Qual a área territorial do Brasil em km²? \n");
     scanf("%f", &area);
 
     printf("Quantas são as principais atrações turísticas do Brasil \n");
     scanf("%d", &atracoes);
+    
 
-    printf("Capital do Brasil: %s - População: %d", capital, populacao);
-    printf(" - PIB 2023: %d - Área territorial: %f" (PIB), area);
+    printf("Código desta carta: %s", carta);
+    printf("Capital do Brasil: %s - População em milhões: %f", capital, populacao);
+    printf(" - PIB 2023 em trilhões: %f - Área territorial em km²: %f", PIB, area);
     printf(" - Quantidade de principais atrações turísticas: %d", atracoes);
 
+    
+    
+    
+    
 
 
  
