@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_PAIS 10
 #define MAX_ESTADOS 4
@@ -100,7 +101,7 @@ void compararCidades(Cidade c1, Cidade c2, char* propriedade) {
     } else if (strcmp(propriedade, "densidade") == 0) {
         valor1 = calcularDensidadePopulacional(c1);
         valor2 = calcularDensidadePopulacional(c2);
-        
+
         // Comparação de Densidade Populacional (menor é melhor)
         if (valor1 < valor2) {
             printf("\nA carta '%s' vence na Densidade Populacional!\n", c1.nome);
@@ -139,12 +140,13 @@ void menu() {
 }
 
 int main() {
-    Pais paises[MAX_PAIS];
+    Pais paises[MAX_PAIS] = {{{0}}}; // Inicializa todos os países e estados com zero
     int numPaises = 0;
-    int opcao;
 
     while (1) {
         menu();
+        
+        int opcao;
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
 
@@ -177,16 +179,16 @@ int main() {
             case 3:
                 if (numPaises > 0) {
                     int estadoIndex, cidadeIndex1, cidadeIndex2;
-                    
+
                     // Escolha do país para comparação
                     for (int i = 0; i < numPaises; i++) {
                         printf("%d. %s\n", i + 1, paises[i].nome);
                     }
-                    
+
                     int paisEscolhido;
                     printf("Escolha o país para comparação: ");
                     scanf("%d", &paisEscolhido);
-                    
+
                     if(paisEscolhido < 1 || paisEscolhido > numPaises){
                         printf("País inválido!\n");
                         break;
@@ -222,27 +224,32 @@ int main() {
                         break;
                     }
 
-                    Cidade cidade1, cidade2;
-                    
+                    Cidade *cidadePtr1 = NULL;
+                    Cidade *cidadePtr2 = NULL;
+
                     // Busca as cidades escolhidas
-                    for(int i = 0; i < MAX_ESTADOS; i++){
-                        for(int j = 0; j < MAX_CIDADES; j++){
+                    for(int i = 0; i < MAX_ESTADOS && !cidadePtr1 && !cidadePtr2; i++){
+                        for(int j = 0; j < MAX_CIDADES && !cidadePtr1 && !cidadePtr2; j++){
                             if(paisSelecionado.estados[i].cidades[j].codigo == cidadeIndex1){
-                                cidade1 = paisSelecionado.estados[i].cidades[j];
+                                cidadePtr1 = &paisSelecionado.estados[i].cidades[j];
                             }
                             if(paisSelecionado.estados[i].cidades[j].codigo == cidadeIndex2){
-                                cidade2 = paisSelecionado.estados[i].cidades[j];
+                                cidadePtr2 = &paisSelecionado.estados[i].cidades[j];
                             }
                         }
                     }
 
-                    char propriedade[20];
-                    
-                    // Escolha da propriedade para comparação
-                    printf("Escolha a propriedade para comparação (populacao/area/pib/densidade/pib_per_capita): ");
-                    scanf("%s", propriedade);
+                    if(cidadePtr1 && cidadePtr2){
+                        char propriedade[20];
+                        
+                        // Escolha da propriedade para comparação
+                        printf("Escolha a propriedade para comparação (populacao/area/pib/densidade/pib_per_capita): ");
+                        scanf("%s", propriedade);
 
-                    compararCidades(cidade1, cidade2, propriedade);
+                        compararCidades(*cidadePtr1, *cidadePtr2, propriedade);
+                    } else {
+                        printf("Uma ou ambas as cidades não foram encontradas.\n");
+                    }
 
                 } else {
                     printf("Nenhum país cadastrado para comparação.\n");
